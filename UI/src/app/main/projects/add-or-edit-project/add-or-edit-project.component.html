@@ -1,0 +1,32 @@
+<div class="dialog">
+    <div class="row">
+        <h2 mat-dialog-title style="color: seagreen;" class="pl-2">Add Project</h2>
+    </div>
+    <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+        <div class="firstLine">
+            <mat-form-field appearance="outline">
+                <mat-label>Project Name</mat-label>
+                <input matInput formControlName="projectName" type="text">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label class="selected-option" id="project">Jira Project</mat-label>
+                <mat-select (selectionChange)="onProjectChange($event)" style="font-size: small; padding-left: 0.7rem;"
+                    formControlName="jiraProject">
+                    <mat-option *ngFor="let value of projects" [value]="value" style="font-size: small;">{{
+                        value.name }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="firstLine">
+            <mat-form-field appearance="outline">
+                <mat-label>Project Description</mat-label>
+                <input matInput formControlName="projectDescription" type="text">
+            </mat-form-field>
+        </div>
+        <div align="end">
+            <button class="button" mat-button color="warn" type="button" (click)="onClose()">Cancel</button>
+            <button class="button" mat-raised-button color="primary" type="submit"
+                [disabled]="projectForm.invalid">Save</button>
+        </div>
+    </form>
+</div>

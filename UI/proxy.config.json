@@ -1,0 +1,8 @@
+{
+    "/api": {
+      "target": "http://10.1.0.5:7000",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+}

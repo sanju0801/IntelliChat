@@ -1,0 +1,41 @@
+.dialog {
+    padding: 10px;
+}
+
+mat-form-field {
+    width: 98%;
+    margin: 0 1%;
+}
+
+.firstLine{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.row{
+    overflow-y: scroll;
+}
+
+.button {
+    background-color: rgb(31, 49, 71);
+    color: #f3f3f3;
+}
+
+.button:hover {
+    background-color: rgb(211, 211, 211);
+    color: #252525;
+}
+
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    border-radius: 8px !important;
+    border: 1px solid rgb(31, 49, 71);
+    padding: 0 2vh!important;
+}
+
+::ng-deep .mdc-line-ripple {
+    display: none !important;
+}
+
+mat-select {
+    padding-left: 0 !important;
+}

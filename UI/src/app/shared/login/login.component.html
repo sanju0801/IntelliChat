@@ -1,0 +1,24 @@
+<div class="loginPage">
+    <div class="loginBox">
+        <div class="form">
+            <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                <div class="container">
+                    <input type="text" placeholder="Username" id="username" formControlName="username"
+                        class="form-control form-control-lg" required>
+                    <input type="password" placeholder="Password" id="password" formControlName="password"
+                        class="form-control form-control-lg" required>
+                    <div class="login-button">
+                        <div class="">
+                            <label>
+                                <input type="checkbox" checked="checked"> <span
+                                    style="color: rgb(243, 243, 243);">Remember me</span>
+                            </label>
+                            <a href="#">Forgot password?</a>
+                        </div>
+                        <button class="btn btn-outline-light btn-lg" type="submit">Login</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div style="width: 98%; margin: 0 1%;">
+    <div class="user">
+        <div class="project">
+            <h3>Projects</h3>
+        </div>
+        <div>
+            <div class="buttons">
+                <button mat-raised-button class="button" (click)="onAdd()">Create</button>
+                <button mat-raised-button class="button" (click)="openUserStory()">Load</button>
+                <button mat-raised-button class="button" (click)="exportToExcel()">Export to Excel</button>
+                <button mat-raised-button class="button" (click)="downloadPDF()">Download</button>
+                <button mat-raised-button class="button" (click)="onDelete()">Delete</button>
+            </div>
+        </div>
+    </div>
+    <ag-grid-angular class="ag-theme-quartz table" [rowData]="projectData" [columnDefs]="colDefs" [pagination]="true"
+        [rowSelection]="rowSelection" [paginationPageSizeSelector]="paginationPageSizeSelector"
+        (rowSelected)="onRowSelected($event)">
+    </ag-grid-angular>
+</div>

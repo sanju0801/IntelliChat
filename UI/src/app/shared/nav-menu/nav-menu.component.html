@@ -1,0 +1,45 @@
+<div *ngIf="isShowSideNav">
+    <ul>
+        <li class="user" [ngClass]="{ 'active': selectedMenu === '/askMe' }">
+            <div class="label" (click)="askMe()">
+                <mat-icon class="icons"> chat_bubble_outline</mat-icon> Ask Me
+            </div>
+        </li>
+        <li class="user" [ngClass]="{ 'active': selectedMenu === '/projects' }" *ngIf="isShowWorkSpaceSubMenu">
+            <div class="label" (click)="projects()">
+                <mat-icon class="icons">folder_open</mat-icon> Projects
+            </div>
+        </li>
+        <li class="user" [ngClass]="{ 'active': selectedMenu === '/fileUpload' }" *ngIf="isShowSettingSubMenu">
+            <div class="label" (click)="document()">
+                <mat-icon class="icons"> insert_drive_file</mat-icon> Documents
+            </div>
+        </li>    
+    </ul>
+</div>
+<div *ngIf="!isShowSideNav">
+    <ul>
+        <li class="user" [ngClass]="{ 'active': selectedMenu === '/askMe' }">
+            <div class="label" (click)="askMe()">
+                <mat-icon class="icons" matTooltip="AskMe">chat_bubble_outline</mat-icon>
+            </div>
+        </li>        
+        <li class="user subMenu-sm" [ngClass]="{ 'active': selectedMenu === '/projects' }"
+            *ngIf="isShowWorkSpaceSubMenu">
+            <div class="label" (click)="projects()">
+                <mat-icon class="icons" matTooltip="Projects">folder_open</mat-icon>
+            </div>
+        </li> 
+        <li class="user subMenu-sm" [ngClass]="{ 'active': selectedMenu === '/fileUpload' }"
+            *ngIf="isShowSettingSubMenu">
+            <div class="label" (click)="document()">
+                <mat-icon class="icons" matTooltip="Documents"> insert_drive_file</mat-icon>
+            </div>
+        </li>
+        <li class="user subMenu-sm" [ngClass]="{ 'active': selectedMenu === '/jira' }" *ngIf="isShowSettingSubMenu">
+            <div class="label" (click)="jira()">
+                <mat-icon class="icons" matTooltip="JIRA">build</mat-icon>
+            </div>
+        </li>
+    </ul>
+</div>

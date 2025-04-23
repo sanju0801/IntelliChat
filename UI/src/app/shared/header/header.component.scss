@@ -1,0 +1,48 @@
+.header {
+    height: 8vh;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    border-bottom: solid 0.2vh rgb(200, 200, 200);
+    background-color: rgb(31, 49, 71);
+}
+
+.left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.hamburger {
+    margin: 0 1vh;
+}
+
+img {
+    margin-top: .7rem;
+    height: 4rem;
+    width: 10rem;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+}
+
+.time {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    color: rgb(243, 243, 243);
+}
+
+p {
+    margin: 0;
+}
+
+::ng-deep .mat-mdc-menu-content {
+    background-color: rgb(31, 49, 71);
+}
+
+mat-icon {
+    color: rgb(243, 243, 243);
+}

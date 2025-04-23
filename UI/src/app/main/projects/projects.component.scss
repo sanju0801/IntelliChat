@@ -1,0 +1,40 @@
+.user {
+    height: 8vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h3 {
+    margin: 0;
+}
+
+.buttons {
+    display: flex; 
+    justify-content: flex-end;
+}
+
+.button {
+    background-color: rgb(31, 49, 71);
+    color: #f3f3f3;
+    margin: 5px 0 0 5px;
+}    
+
+.ag-theme-quartz {
+    --ag-background-color: rgb(243, 243, 243);
+    --ag-header-background-color: rgb(225, 225, 225);
+    --ag-row-gover-color: rgb(225, 225, 225);
+}
+
+.table {
+    height: 74.5vh;
+}
+
+::ng-deep .mat-mdc-dialog-inner-container {
+    width: 50vw !important;
+    height: 40vh !important;
+}
+
+::ng-deep .cdk-overlay-pane.mat-mdc-dialog-panel {
+    max-width: 70vw !important;
+}

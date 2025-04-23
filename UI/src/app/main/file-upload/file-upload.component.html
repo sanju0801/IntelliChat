@@ -1,0 +1,38 @@
+<div style="margin: 0.5% 1%; width: 98%;">
+    <div class="panel">
+        <div style="display: flex; flex-direction: row;">
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label class="selected-option" id="project">Project</mat-label>
+                    <mat-select (selectionChange)="onProjectChange($event)"
+                        style="font-size: small; padding-left: 0.7rem;">
+                        <mat-option *ngFor="let value of projects" [value]="value.title" style="font-size: small;">{{
+                            value.title }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div [ngClass]="{ 'uploadButton': isShowSideNav == true, 'uploadButton-sm': isShowSideNav == false}">
+                <div>
+                    <div>
+                        <button type="button" mat-raised-button (click)="fileInput.click()" class="upload-button"
+                            [disabled]="!selectedProjectName">
+                            <span>Upload Document (.pdf, .docx, .txt, .cfg)</span>
+                            <mat-icon>cloud_upload</mat-icon>
+                            <input #fileInput type="file" (change)="onFileSelected($event)" style="display: none;" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="loading-indicator" *ngIf="isLoading == true"></div>
+        </div>
+        <div>
+            <div class="buttons">
+                <button mat-raised-button class="button" (click)="chunked()">Ingest</button>
+                <button mat-raised-button class="button" (click)="download()">Download</button>
+            </div>
+        </div>
+    </div>
+    <ag-grid-angular class="ag-theme-quartz table" [rowData]="tableViewData" [columnDefs]="colDefs" [pagination]="true"
+        [paginationPageSizeSelector]="paginationPageSizeSelector" (rowSelected)="onRowSelected($event)">
+    </ag-grid-angular>
+</div>

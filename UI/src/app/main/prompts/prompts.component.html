@@ -1,0 +1,56 @@
+<div #chatContainer class="chat">
+    <div *ngFor="let chat of chatHistory" class="chatItem">
+        <div class="questionBox">
+            <div class="cognizant">
+                <div class="icon">
+                    <mat-icon>account_circle</mat-icon>
+                </div>
+                <div class="question">
+                    {{ chat.question }}
+                </div>
+            </div>
+        </div>
+        <div class="answerBox">
+            <div class="cognizant">
+                <img class="img" src="assets/response_icon.png" alt="">
+                <div class="answer" *ngIf="!chat.isLoading">
+                    <pre><span>{{ chat.answer }}</span></pre>
+                </div>
+                <div class="loader">
+                    <app-loader *ngIf="chat.isLoading"></app-loader>
+                </div>
+            </div>
+            <div class="buttons" *ngIf="!chat.isLoading && chat.answer">
+                <div (click)="onUp(chat)" [ngClass]="{'upvoted': chat.upvoted}">
+                    <mat-icon>thumb_up</mat-icon>
+                </div>
+                <div (click)="onDown(chat)" [ngClass]="{'downvoted': chat.downvoted}">
+                    <mat-icon>thumb_down</mat-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="askMe">
+    <div class="project">
+        <mat-form-field appearance="fill">
+            <mat-label class="selected-option" id="project">Project</mat-label>
+            <mat-select (selectionChange)="onProjectChange($event)" [(ngModel)]="selectedProject"
+                style="font-size: small; padding-left: 0.7rem;">
+                <mat-option *ngFor="let value of projects" [value]="value.title" style="font-size: small;">{{ value.title }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="searchBar">
+        <mat-form-field appearance="fill" class="inputFeild">
+            <div class="inp">
+                <mat-icon class="profile">account_circle</mat-icon>
+                <input class="input" matInput placeholder="Enter a prompt here..." [(ngModel)]="searchKeyword"
+                    (keyup.enter)="submit()" [disabled]="isDisable && !selectedProject">
+                <div class="send" *ngIf="searchKeyword != ''" (click)="submit()">
+                    <mat-icon>send</mat-icon>
+                </div>
+            </div>
+        </mat-form-field>
+    </div>
+</div>
